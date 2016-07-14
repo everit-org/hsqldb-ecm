@@ -19,7 +19,6 @@ import java.sql.SQLException;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import javax.sql.CommonDataSource;
 import javax.sql.XADataSource;
 
 import org.everit.osgi.ecm.annotation.Activate;
@@ -38,10 +37,10 @@ import org.hsqldb.jdbc.pool.JDBCXADataSource;
  */
 @ExtendComponent
 @Component(componentId = HsqlDataSourceComponentConstants.XA_DATASOURCE_SERVICE_FACTORY_PID,
-    configurationPolicy = ConfigurationPolicy.FACTORY, label = "Everit HyperSQL XADataSource",
-    description = "Configurable component that instantiates HsqlXADataSource and "
-        + "registers it as an OSGi service based on XADataSource and CommonDataSource interfaces.")
-@ManualServices(@ManualService({ XADataSource.class, CommonDataSource.class }))
+    configurationPolicy = ConfigurationPolicy.FACTORY, label = "Everit HSQLDB XADataSource",
+    description = "Configurable component that instantiates HSQLDB XADataSource and "
+        + "registers it as an OSGi service based on XADataSource interface.")
+@ManualServices(@ManualService({ XADataSource.class, JDBCXADataSource.class }))
 public class HsqlXADataSourceComponent extends AbstractHsqlDatasourceComponent {
 
   /**
@@ -53,7 +52,6 @@ public class HsqlXADataSourceComponent extends AbstractHsqlDatasourceComponent {
     try {
       jdbcXADataSource = new JDBCXADataSource();
     } catch (SQLException e) {
-      // TODO DO Nothing
       throw new RuntimeException(e);
     }
 
@@ -62,7 +60,7 @@ public class HsqlXADataSourceComponent extends AbstractHsqlDatasourceComponent {
     Dictionary<String, Object> serviceProperties =
         new Hashtable<>(componentContext.getProperties());
     serviceRegistration = componentContext.registerService(
-        new String[] { XADataSource.class.getName(), CommonDataSource.class.getName() },
+        new String[] { XADataSource.class.getName(), JDBCXADataSource.class.getName() },
         jdbcXADataSource, serviceProperties);
   }
 

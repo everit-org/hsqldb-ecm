@@ -29,11 +29,11 @@
 
   <groupId>org.everit.persistence</groupId>
   <artifactId>org.everit.persistence.hsqldb.ecm</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <packaging>bundle</packaging>
-  <name>Everit - HyperSQL ECM</name>
-  <description>Configurable ECM based component that makes it possible to instantiate and register HsqlDataSource and register it as an OSGi service based on the interfaces it implements.</description>
+  <name>Everit - HSQLDB ECM</name>
+  <description>Configurable ECM based component that makes it possible to instantiate and register HSQLDB DataSource and register it as an OSGi service based on the interfaces it implements.</description>
 
   <properties>
     <projectpath>hsqldb-ecm</projectpath>

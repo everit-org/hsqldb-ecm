@@ -16,9 +16,7 @@
 package org.everit.persistence.hsqldb.ecm;
 
 /**
- * Configuration attributes and other constant values of
- * {@link org.everit.persistence.hsqldb.ecm.internal.HsqlXADataSourceComponent} and
- * {@link org.everit.persistence.hsqldb.ecm.internal.HsqlDataSourceComponent}}.
+ * Configuration attributes and other constant values of the ECM components of this module.
  */
 public final class HsqlDataSourceComponentConstants {
 
